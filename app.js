@@ -1,4 +1,3 @@
-// var btns = document.querySelectorAll('.normal');
 var btns = document.querySelectorAll('.btn');
 var screen = document.querySelector("#screen");
 var answer = document.querySelector("#answer");
@@ -11,7 +10,7 @@ for (var button of btns) {
             try {
                 lnConverter()
                 var result = math.evaluate(screen.value);
-                math.format(result, { precision: 10 })  //round off
+                math.format(result, { precision: 10 })  
                 answer.value = result;
                 screen.value = ''
             } catch (error) {
@@ -77,7 +76,6 @@ function assignValue(text) {
     }
 }
 
-//change ln(number) to log(number,e)
 function lnConverter() {
     const ln = 'ln(';
     const closure = ')';
@@ -87,7 +85,6 @@ function lnConverter() {
     var end = words.indexOf(closure, start)
     var number = words.substring(start + 3, end);
 
-    //build new string:
     if (start != -1) {
         const newWords = words.substring(0, start) + "log(" + number + ",e)" + words.substring(end + 1, words.length)
         console.log(newWords)
